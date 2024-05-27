@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <div className='flex flex-col transition-all duration-300 bg-black min-h-screen fixed'>
       <div className='flex content-center p-3 pt-5'>
-        <img className='w-6 h-6' src="/icons/company-logo.png" alt="" />
+        <img className='w-6 h-6' src="/logo/company-logo.png" alt="" />
       </div>
 
       <div className="flex mt-36 items-center justify-center">

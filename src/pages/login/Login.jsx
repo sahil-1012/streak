@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, IconButton } from '@mui/material'
+import { Button, IconButton, TextField } from '@mui/material'
 import { AccountCircle, Visibility, VisibilityOff } from '@mui/icons-material'
 import { useSnackbar } from '../../hooks/useSnackbar'
 
@@ -56,9 +56,9 @@ const Login = () => {
 
           <div className='flex justify-center'>
             <div className='flex flex-col gap-5 max-w-md w-full' >
-              <button className='flex p-3 gap-5 justify-center items-center bg-tertiary shadow-sm rounded-md w-full select-none' onClick={() => { }}>
+              <button className='flex p-3 gap-5 justify-center items-center bg-purple-100 shadow-sm rounded-md w-full select-none' onClick={() => { }}>
                 <div className='h-fit w-fit flex p-1 bg-white rounded-full'>
-                  <img draggable={false} src={google} className='h-5 w-5' alt="googleImage" />
+                  <img draggable={false} src='/logo/google.svg' className='h-5 w-5' alt="googleImage" />
                 </div>
                 <h5 className='text-p font-semibold'>Sign in with Google</h5>
               </button>
@@ -67,7 +67,7 @@ const Login = () => {
 
               <div className='flex flex-col items-center'>
                 <form className='flex flex-col gap-6 w-full justify-center items-center' onSubmit={handleSubmit}>
-                  <CustomTextField
+                  <TextField
                     label="User ID"
                     name="username"
                     value={formData.username}
@@ -76,19 +76,22 @@ const Login = () => {
                     startIcon={<AccountCircle />}
                     onChange={handleChange}
                   />
-                  <CustomTextField
+                  <TextField
                     label="Password"
                     name="password"
                     value={formData.password}
                     type={showPassword ? 'text' : 'password'}
                     fullWidth
-                    endIcon={
-                      <IconButton aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword} edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    } onChange={handleChange}
+                    sx={
+
+                      endIcon = {
+                        <IconButton aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword} edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                  }
+                      } onChange={handleChange}
                   />
                   <div className='flex justify-center items-center w-full'>
                     <Button type='submit' fullWidth >
