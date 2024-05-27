@@ -10,7 +10,6 @@ module.exports = {
         'secondary': '#9ca3af',
         'green': '#10b981',
         'red': '#ef4444'
-
       },
 
       backgroundColor: {

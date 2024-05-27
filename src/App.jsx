@@ -1,19 +1,19 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Login from './pages/login/Login';
 import UserRoutes from './routes/UserRoutes ';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { loadingState } from './recoil/state';
 import { useRecoilState } from 'recoil';
 import { useSnackbar } from './hooks/useSnackbar';
-import { Alert, CircularProgress, Slide, Snackbar } from '@mui/material';
+import { Alert, Backdrop, CircularProgress, Slide, Snackbar } from '@mui/material';
 
 const App = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const authToken = sessionStorage.getItem('auth-token');
   const loggedIn = location.pathname !== '/'
   const isAuthenticated = authToken && loggedIn;
-
   const { isSnackbarOpen, snackbarMessage, snackbarType, snackbarIcon, handleSnackbarClose, horizontal, vertical } = useSnackbar();
   const [isLoading] = useRecoilState(loadingState);
 
@@ -23,9 +23,14 @@ const App = () => {
     return <Slide {...props} direction={direction} />;
   };
 
+  useEffect(() => {
+    if (!isAuthenticated) navigate('/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+
   return (
     <React.Fragment>
-      <Routes>
+      <Routes >
         <Route path="/" element={<Login />} />
       </Routes>
       {isAuthenticated && <UserRoutes />}
@@ -37,7 +42,9 @@ const App = () => {
         </Alert>
       </Snackbar>}
 
-      {isLoading && <CircularProgress color="success" />}
+      <Backdrop className='bg-[#fff] z-50' open={isLoading} >
+        <CircularProgress color="success" />
+      </Backdrop>
 
     </React.Fragment>
   );

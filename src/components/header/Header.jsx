@@ -15,17 +15,17 @@ const Header = ({ userData }) => {
 
       <div className='flex gap-3 '>
         <p className='flex gap-2.5 bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
-          <ExploreOutlined className='text-secondary' />
+          <ExploreOutlined className='hidden md:flex text-secondary' />
           <span className='text-sm text-secondary'>For you</span>
         </p>
 
         <p className='flex gap-2.5 bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
-          <DvrOutlined className='text-secondary' />
+          <DvrOutlined className='hidden md:flex text-secondary' />
           <span className='text-sm text-secondary'>Screener</span>
         </p>
 
         <p className='flex bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
-          <SearchOutlined className='text-secondary' />
+          <SearchOutlined className='hidden md:flex text-secondary' />
         </p>
 
       </div>

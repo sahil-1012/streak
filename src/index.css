@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.white-text-field .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    @apply border-slate-600;
+}
+
+.white-text-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    @apply border-slate-400;
+}
+
+.white-text-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    @apply border-slate-400;
+}
