@@ -1,6 +1,7 @@
 import React from 'react'
 import { dateFormatter } from '../../utils/dateFormatter'
-import { DvrOutlined, ExploreOutlined, LocalPoliceOutlined, SearchOutlined } from '@mui/icons-material'
+import { DvrOutlined, ExploreOutlined, LocalPoliceOutlined } from '@mui/icons-material'
+import Search from './Search';
 
 const Header = ({ userData }) => {
   const date = dateFormatter(new Date());
@@ -16,18 +17,15 @@ const Header = ({ userData }) => {
       <div className='flex gap-3 '>
         <p className='flex gap-2.5 bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
           <ExploreOutlined className='hidden md:flex text-secondary' />
-          <span className='text-sm text-secondary'>For you</span>
+          <span className=' hidden md:flex text-sm text-secondary'>For you</span>
         </p>
 
         <p className='flex gap-2.5 bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
-          <DvrOutlined className='hidden md:flex text-secondary' />
-          <span className='text-sm text-secondary'>Screener</span>
+          <DvrOutlined className=' text-secondary' />
+          <span className='hidden md:flex text-sm text-secondary'>Screener</span>
         </p>
 
-        <p className='flex bg-tertiary px-2 py-1 h-fit rounded-2xl cursor-pointer'>
-          <SearchOutlined className='hidden md:flex text-secondary' />
-        </p>
-
+        <Search />
       </div>
 
     </div >

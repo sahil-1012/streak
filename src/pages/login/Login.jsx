@@ -11,7 +11,7 @@ import { loadingState } from '../../recoil/state'
 
 const Login = () => {
   const { handleSnackbarOpen } = useSnackbar();
-  const [loading, setLoading] = useRecoilState(loadingState);
+  const [, setLoading] = useRecoilState(loadingState);
 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -44,7 +44,7 @@ const Login = () => {
 
   return (
     <main className='flex justify-center items-center bg-secondary p-5 sm:px-10 xl:px-20 py-3 min-h-screen'>
-      <div className='grid lg:grid-cols-2 max-w-8xl w-full'>
+      <div className='grid lg:grid-cols-2 max-w-7xl w-full'>
         <div className='flex flex-col gap-10 p-3 sm:p-8 xl:px-5 py-8 bg-tertiary w-full h-full'>
           <header className=''>
             <div className='flex flex-col items-center gap-5'>
@@ -52,7 +52,9 @@ const Login = () => {
                 <img draggable={false} className='w-16' src="/logo/company-logo.png" alt="STREAK_Logo" />
                 <span className='text-primary text-3xl font-semibold  '>STREAK</span>
               </div>
-              <p className='text-secondary text-xs sm:text-sm font-medium text-center max-w-xl w-full'>Streamline college operations & empower users with our all-in-one management platform for admissions, courses, grades & communication.</p>
+              <p className='text-secondary text-xs sm:text-sm font-medium text-center max-w-xl w-full'>
+              Access comprehensive market data and analytical tools to make informed investment decisions on our platform tailored for traders, investors, and analysts.
+              </p>
             </div>
           </header>
 
@@ -125,7 +127,7 @@ const Login = () => {
         </div>
 
         <div className='bg-[#EFF9F8] lg:flex items-center justify-center hidden select-none'>
-          <img draggable={false} className='h-full w-fit opacity-95 bg-black shadow-inner' src="/images/login-container.webp" alt="logIn" />
+          <img draggable={false} className='h-full min-h-96 w-fit opacity-95 bg-black shadow-inner object-cover' src="/images/login-container.webp" alt="logIn" />
         </div>
       </div>
     </main>

@@ -3,7 +3,8 @@ import React from 'react'
 
 const RecentNews = ({ className }) => {
     return (
-        <div className={`flex flex-col justify-between p-8 bg-black ${className} rounded-md h-full`}>
+        <div className={`flex flex-col justify-between p-8 bg-black ${className} rounded-md h-full relative`}>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-700/20 via-transparent to-transparent rounded-md" />
             <div className='flex gap-2.5 '>
                 <p className='flex items-center px-3 rounded-3xl bg-tertiary text-primary font-normal'>The markets are&nbsp;
                     <span className='text-green font-semibold'>bullish</span>

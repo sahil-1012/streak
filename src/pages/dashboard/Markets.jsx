@@ -119,14 +119,6 @@ const Markets = () => {
     const [currentMarket, setCurrentMarket] = useState(markets[0]);
     const handleChangeMarket = (selectedMarket) => setCurrentMarket(selectedMarket);
 
-    const mainData = [98.38, 89.51, 112.9, 93.36, 119.4, 102.29,
-        78.84, 86.22, 64.86, 94.72, 122.4, 103.34, 133.4, 189.86,
-        193.2, 205, 206, 206, 210]
-
-    const secondaryData = [
-        106, 96, 96, 106, 106, 96, 96, 106, 106, 96, 96, 106, 106, 96, 96, 110, 110, 112, 110]
-
-
     return (
         <div className='col-span-full flex flex-col gap-5'>
             <h2 className='text-secondary text-xl font-medium px-2'>
