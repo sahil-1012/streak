@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/dashboard/Dashboard';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Login from './pages/login/Login';
 import UserRoutes from './routes/UserRoutes ';
+import React from 'react';
 
 const App = () => {
+  const location = useLocation();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    // const isAuthenticated = localStorage.getItem('auth-token'); 
-    const isAuthenticated = true;
-    setIsLoggedIn(isAuthenticated);
-  }, []);
-
+  // const authToken = sessionStorage.getItem('auth-token');
+  const authToken = true;
+  const loggedIn = location.pathname !== '/'
+  const isAuthenticated = authToken && loggedIn;
 
   return (
-    <Router>
+    <React.Fragment>
       <Routes>
         <Route path="/" element={<Login />} />
       </Routes>
-      {isLoggedIn && <UserRoutes />}
-    </Router>
+      {isAuthenticated && <UserRoutes />}
+    </React.Fragment>
   );
 };
 

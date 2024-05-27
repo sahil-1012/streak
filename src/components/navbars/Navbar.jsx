@@ -1,7 +1,7 @@
 import React from 'react';
-import { AssessmentOutlined, BookmarkBorderOutlined, DashboardOutlined, QueryStatsOutlined, SettingsOutlined } from '@mui/icons-material';
-import { Link, useLocation } from 'react-router-dom';
-import { Tabs, Tab } from '@mui/material';
+import { AssessmentOutlined, BookmarkBorderOutlined, DashboardOutlined, LogoutOutlined, QueryStatsOutlined, SettingsOutlined } from '@mui/icons-material';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Tabs, Tab, IconButton } from '@mui/material';
 
 const Navbar = () => {
   const location = useLocation();
@@ -16,8 +16,15 @@ const Navbar = () => {
     { icon: <SettingsOutlined />, label: 'Settings', value: 'settings' },
   ];
 
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    sessionStorage.clear('auth-token');
+    navigate('/')
+  };
+
+
   return (
-    <div className='flex flex-col transition-all duration-300 w-fit bg-black h-full'>
+    <div className='flex flex-col transition-all duration-300 bg-black min-h-screen fixed'>
       <div className='flex content-center p-3 pt-5'>
         <img className='w-6 h-6' src="/icons/company-logo.png" alt="" />
       </div>
@@ -36,6 +43,11 @@ const Navbar = () => {
               sx={{ minWidth: '30px', marginY: 1 }} disableRipple
             />
           ))}
+
+          <Tab
+            onClick={handleLogout} sx={{ minWidth: '30px', marginY: 1 }} disableRipple
+            icon={<LogoutOutlined className='text-white' />}
+          />
         </Tabs>
       </div>
     </div>
